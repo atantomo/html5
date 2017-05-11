@@ -20,6 +20,7 @@ function displayLocation(position) {
 
     var div = document.getElementById("location");
     div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude;
+    div.innerHTML += " (with " + position.coords.accuracy + " meters accuracy)";
 
     var km = computeDistance(position.coords, ourCoords);
     var distance = document.getElementById("distance");
@@ -58,7 +59,7 @@ function addMarker(map, latlong, title, content) {
         content: content,
         position: latlong
     };
-    var infoWindow = new google.maps.infoWindow(infoWindowsOptions);
+    var infoWindow = new google.maps.InfoWindow(infoWindowsOptions);
 
     google.maps.event.addListener(marker, "click", function() {
         infoWindow.open(map);
@@ -95,3 +96,8 @@ function displayError(error) {
     var div = document.getElementById("location");
     div.innerHTML = errorMessage;
 }
+
+// Geolocation
+// getCurrentPosition
+// watchPosition
+// clearWatch
