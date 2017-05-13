@@ -8,9 +8,31 @@ var ourCoords = {
 function init() {
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(displayLocation, displayError);
+        var options = {
+            enableHighAccuracy: true,
+            maximumAge: 60000,
+        }
+        // navigator.geolocation.getCurrentPosition(displayLocation, displayError, options);
+        var watchButton = document.getElementById("watch");
+        watchButton.onclick = watchLocation;
+
+        var clearWatchButton = document.getElementById("clearWatch");
+        clearWatchButton.onclick = clearWatch;
     } else {
         alert("Oops, no geolocation support");
+    }
+}
+
+var watchId = null;
+
+function watchLocation() {
+    watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
+}
+
+function clearWatch() {
+    if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
     }
 }
 
@@ -31,6 +53,16 @@ function displayLocation(position) {
 
 var map;
 
+function createMap(googleLatAndLong) {
+    var mapOptions = {
+        zoom: 10,
+        center: googleLatAndLong,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var mapDiv = document.getElementById("map");
+    return new google.maps.Map(mapDiv, mapOptions);
+}
+
 function showMap(coords) {
     var googleLatAndLong = new google.maps.LatLng(coords.latitude, coords.longitude);
     var mapOptions = {
@@ -38,8 +70,11 @@ function showMap(coords) {
         center: googleLatAndLong,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var mapDiv = document.getElementById("map");
-    map = new google.maps.Map(mapDiv, mapOptions);
+    if (map == null) {
+        map = createMap(googleLatAndLong);
+    } else {
+        map.panTo(googleLatAndLong);
+    }
 
     var title = "Your Location";
     var content = "You are here: " + coords.latitude + ", " + coords.longitude;
