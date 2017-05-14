@@ -1,7 +1,5 @@
 window.onload = init;
 
-var lastReportTime = 0;
-
 function init() {
 
     a();
