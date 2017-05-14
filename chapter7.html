@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Head First HTML5 Chapter 7</title>
+        <meta charset="utf-8">
+        <script src="js/modernizr.min.js"></script>
+        <script src="js/chapter7.js"></script>
+    </head>
+
+    <body>
+        <div style="position: absolute; top: 50px; left: 50px;">
+            <div>
+                <canvas id="tshirtCanvas" width="1200" height="400" style="width: 600px; height:200px ">
+                    Your browser does not support HTML5 Canvas.
+                </canvas>
+            </div>
+            <form>
+                <p>
+                    <label for="backgroundColor">Select background color:</label>
+                    <select id="backgroundColor">
+                        <option value="#EEEEEE" selected="selected">Bright</option>
+                        <option value="#646464" selected="selected">Dark</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="shape">Circles or squares?</label>
+                    <select id="shape">
+                        <option value="none">Neither</option>
+                        <option value="circles" selected="selected">Circles</option>
+                        <option value="squares">Squares</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="foregroundColor">Select text color:</label>
+                    <select id="foregroundColor">
+                        <option value="#000000">Black</option>
+                        <option value="#FFFFFF" selected="selected">White</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="tweets">Pick a tweet:</label>
+                    <input id="tweets" placeholder="your text" value="place your text here" />
+                </p>
+                <p>
+                    <input type="button" id="previewButton" value="Preview">
+                </p>
+            </form>
+        </div>
+    </body>
+
+</html>
