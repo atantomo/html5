@@ -8,6 +8,8 @@ function init() {
         breed: "Mixed",
         loves: ["walks", "fetching balls"]
     };
+    fido.hair = "golden";
+    console.log(fido);
     var jsonString = JSON.stringify(fido);
     // alert(jsonString);
     var prop;

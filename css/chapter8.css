@@ -1,0 +1,17 @@
+div#videoDiv {
+    position: relative;
+    width: 720px;
+    height: 480px;
+    top: 0px;
+    left: 0px;
+}
+
+video {
+    background-color: black;
+}
+
+div#videoDiv canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

@@ -4,23 +4,51 @@
     <head>
         <title>Head First HTML5 Chapter 8</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/chapter8.css"></link>
         <script src="js/chapter8.js"></script>
     </head>
 
     <body>
-        <div id="tv">
+        <div id="booth">
+            <div id="console">
+                <div id="videoDiv">
+                    <video id="video" width="720" height="480"></video>
+                    <canvas id="buffer" width="720" height="480"></canvas>
+                    <canvas id="display" width="720" height="480"></canvas>
+                </div>
+                <div id="dashboard">
+                    <div id="effects">
+                        <a class="effect" id="normal">normal</a>
+                        <a class="effect" id="western">western</a>
+                        <a class="effect" id="noir">noir</a>
+                        <a class="effect" id="scifi">scifi</a>
+                    </div>
+                    <div id="controls">
+                        <a class="control" id="play">play</a>
+                        <a class="control" id="pause">pause</a>
+                        <a class="control" id="loop">loop</a>
+                        <a class="control" id="mute">mute</a>
+                    </div>
+                    <div id="videoSelection">
+                        <a class="videoSelection" id="video1">video1</a>
+                        <a class="videoSelection" id="video2">video2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="tv">
             <div id="tvConsole">
                 <div id="highlight">
                     <img src="img/flower_small.jpg" alt="highlight for tv">
                 </div>
                 <div id="videoDiv">
                     <video controls width="480" height="360" poster="img/flower_small.jpg" id="video">
-                        <!-- <source src="vid/squirrel.m4v" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'> -->
+                        <source src="vid/squirrel.m4v" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                         <p>Your browser does not support the video element.</p>
                     </video>
                 </div>
             </div>
-        </div>
+        </div> -->
     </body>
 
 </html>
